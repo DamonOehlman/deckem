@@ -1,0 +1,31 @@
+{
+    "name": "deckem",
+    "description": "Jade + deck.js awesomeness, wrapped in a Steelmesh app",
+    "tags": ["presentations", "deck.js", "couchdb", "steelmesh"],
+    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+    "version": "0.0.1",
+    "main": "index",
+    "bin": { "deckem": "./bin/deckem" },
+    
+    "engines": { "node": "0.4.x || 0.5.x" },
+    
+    "dependencies": {
+        "jade": "0.15.x"
+    },
+    
+    "devDependencies": {
+        "vows": "0.5.x"
+    },
+    
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/steelmesh/deckem.git"
+    },
+    
+    "bugs": {
+        "web": "http://github.com/steelmesh/deckem/issues"
+    },
+
+    "contributors": [
+    ]
+}

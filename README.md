@@ -1,0 +1,5 @@
+# Deckem: Jade + deck.js Awesomeness 
+
+This is a Steelmesh reference application that is actually pretty useful (or at least it will be when it's done).  Essentially, [deck.js](http://imakewebthings.github.com/deck.js/) looks great.  It does, however, require a bit of HTML hacking to put a slide-deck together.  This isn't a bad thing, as it means that people can write slides in whatever way they like.
+
+For me, that's writing slides using [Markdown](https://secure.wikimedia.org/wikipedia/en/wiki/Markdown) where possible. Deck.js, however, uses a lot of class information to make the magic happen.  As such, a templating engine like [Jade](http://github.com/visionmedia/jade) which has excellent support for classes, etc, is probably a better choice for writing a slide generator for Deck.  Besides, if you have the appropriate packags, Jade can parse markdown anyway...
