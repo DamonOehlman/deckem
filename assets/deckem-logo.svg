@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="300"
+   height="60"
+   id="svg2917"
+   version="1.1"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="deckem-logo.svg"
+   inkscape:export-filename="/development/projects/github/steelmesh/deckem/assets/deckem-logo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs2919">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective2925" />
+    <inkscape:perspective
+       id="perspective3730"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="161.0723"
+     inkscape:cy="21.191871"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="887"
+     inkscape:window-height="612"
+     inkscape:window-x="76"
+     inkscape:window-y="20"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata2922">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-271.56769,-410.8868)">
+    <g
+       id="g3795"
+       transform="translate(14.99017,-4.1014151)">
+      <text
+         xml:space="preserve"
+         style="font-size:68.49935913px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-align:start;text-anchor:start;fill:#71c837;fill-opacity:1;stroke:none;font-family:Fabryka;-inkscape-font-specification:Fabryka"
+         x="437.43353"
+         y="469.95029"
+         id="text2927-1"><tspan
+           sodipodi:role="line"
+           id="tspan2929-3"
+           x="437.43353"
+           y="469.95029"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#71c837;font-family:Century Gothic;-inkscape-font-specification:Century Gothic">em</tspan></text>
+      <text
+         id="text3747"
+         y="468.57443"
+         x="267.99088"
+         style="font-size:67.20482635px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-align:start;text-anchor:start;fill:#999999;fill-opacity:1;stroke:none;font-family:Fabryka;-inkscape-font-specification:Fabryka"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#999999;font-family:Century Gothic;-inkscape-font-specification:Century Gothic"
+           y="468.57443"
+           x="267.99088"
+           id="tspan3749"
+           sodipodi:role="line">deck</tspan></text>
+    </g>
+  </g>
+</svg>
