@@ -11,7 +11,9 @@
     
     "dependencies": {
         "commander": "0.1.x",
-        "jade": "0.15.x"
+        "jade": "0.15.x",
+        "out": "0.x.x",
+        "ncp": "0.1.x"
     },
     
     "devDependencies": {
