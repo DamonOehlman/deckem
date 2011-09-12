@@ -9,6 +9,6 @@ var interleave = require('interleave'),
 // build each of the builds
 interleave('src', {
     multi: 'pass',
-    path: 'assets/js',
+    path: 'assets/client',
     config: config
 });
