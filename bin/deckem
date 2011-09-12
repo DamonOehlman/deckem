@@ -19,7 +19,9 @@ function progInit() {
 		var action = builder[program.args] || builder.build;
 	
 		// run the action
-		action.call(builder, program);
+		action.call(builder, program, function() {
+			// done
+		});
 	});
 } // progInit
 	
