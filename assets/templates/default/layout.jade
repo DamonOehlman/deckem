@@ -4,8 +4,19 @@ html
         title #{title}
         
         link(rel='stylesheet', href='#{clientpath}deckem.css')
-    body
+    body.deck-container
         !{deck}
         
         script(src='#{clientpath}deckem.js')
+        script
+            /*
+            $.deck.defaults.keys = {
+              next: [],
+              previous: []
+            };
+            */
+        
+            $(function() {
+                $.deck('.slide');
+            });
    
