@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><title>Untitled presentation</title><link rel="stylesheet" href="deckem.css"></head><body class="deck-container"><div class="slide"><h1>Welcome to Deck'em</h1></div><div class="slide"><h2>What is Deck'em</h2><p><p>Deck&#39;em is a tool designed to make creating and
+maintaining a <a href="https://github.com/imakewebthings/deck.js">deck.js</a> presentation simpler.</p>
+
+<p>It does this in the following ways:</p></p><ul><li class="slide"><p>It includes deck scaffolding and building tools, meaning you just write the slides 
+and don&#39;t have to worry about the boilerplate HTML.</p></li><li class="slide"><p>It makes use of the excellent <a href="https://github.com/visionmedia/jade">Jade templating engine</a>
+which means you can create your slides with and not have to type so many damn tags.</p></li><li class="slide"><p>Using Jade means that you are only one step away from being able 
+to use <a href="http://daringfireball.net/projects/markdown/">Markdown</a> in your slides.</p>
+
+<p>You simply need to install a suitable node markdown package, such as <code>markdown</code> or <code>rdiscount</code>.</p></li></ul></div><div class="slide"><h2>Some Example Code</h2><textarea mode="javascript" runnable="true" class="code">console.log('hello');
+</textarea></div>
+<p class="deck-status"><span class="deck-status-current"></span><span>/</span><span class="deck-status-total"></span></p><script src="deckem.js"></script><script>/*
+$.deck.defaults.keys = {
+  next: [],
+  previous: []
+};
+*/
+
+$(function() {
+    $.deck('.slide');
+});
+</script></body></html>

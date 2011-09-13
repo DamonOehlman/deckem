@@ -7,6 +7,11 @@ html
     body.deck-container
         !{deck}
         
+        p.deck-status
+            span.deck-status-current
+            span /
+            span.deck-status-total
+        
         script(src='#{clientpath}deckem.js')
         script
             /*
