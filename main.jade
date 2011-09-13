@@ -1,0 +1,36 @@
+.slide
+    h1 Welcome to Deck'em
+    
+.slide
+    h2 What is Deck'em
+    
+    p 
+        :markdown
+            Deck'em is a tool designed to make creating and
+            maintaining a [deck.js](https://github.com/imakewebthings/deck.js) presentation simpler.
+            
+            It does this in the following ways:
+    
+    ul
+        li.slide
+            :markdown
+                It includes deck scaffolding and building tools, meaning you just write the slides 
+                and don't have to worry about the boilerplate HTML.
+
+        li.slide
+            :markdown
+                It makes use of the excellent [Jade templating engine](https://github.com/visionmedia/jade)
+                which means you can create your slides with and not have to type so many damn tags.
+                
+        li.slide
+            :markdown
+                Using Jade means that you are only one step away from being able 
+                to use [Markdown](http://daringfireball.net/projects/markdown/) in your slides.
+                
+                You simply need to install a suitable node markdown package, such as `markdown` or `rdiscount`.
+    
+.slide
+    h2 Some Example Code
+    
+    textarea.code(mode='javascript',runnable='true')
+        console.log('hello');
