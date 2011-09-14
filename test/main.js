@@ -20,7 +20,7 @@ builder.on('ready', function() {
             
             'deck file created': function(err) {
                 assert.ok(! err);
-                assert.ok(path.existsSync(path.join(testPath, 'main.jade')), 'main.jade does not exist');
+                assert.ok(path.existsSync(path.join(testPath, 'deck.jade')), 'deck.jade does not exist');
             }
         }
     });
