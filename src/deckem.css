@@ -1,8 +1,19 @@
 /*= deck.js!core/deck.core.css */
 /*= deck.js!extensions/hash/deck.hash.css */
 /*= deck.js!extensions/status/deck.status.css */
-/*= deck.js!extensions/scale/deck.scale.css */
-/*= deck.js!themes/style/swiss.css */
 /*= deck.js!themes/transition/horizontal-slide.css */
 /*= deckmirror!deck.codemirror.css */
-/*= deckmirror!themes/default.css */
+
+html {
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.sp-screen {
+    height: 100%;
+}

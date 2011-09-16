@@ -1,0 +1,28 @@
+.sp-screen {
+    height: 85%;
+    padding: 0.5% 48px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.sp-pane {
+    -webkit-box-shadow: #111 0 1px 4px;
+}
+
+.sp-stage {
+    -webkit-perspective: 300;
+}
+
+.sp-floor {
+    -webkit-transform: rotateX(40deg);
+    -webkit-transform-origin: 100px 0;
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.sp-audience {
+    min-height: 100px;
+    margin: -20px 0 0;
+}

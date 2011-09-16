@@ -14,3 +14,10 @@ interleave('src', {
     path: 'assets/client',
     config: config
 });
+
+// build each of the themse
+interleave('src/themes', {
+    multi: 'pass',
+    path: 'assets/client/themes',
+    config: config
+});

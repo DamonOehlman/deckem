@@ -4,13 +4,23 @@ html
         title #{title}
         
         link(rel='stylesheet', href='#{clientpath}deckem.css')
-    body.deck-container
-        !{deck}
+        link(rel='stylesheet', href='#{clientpath}stage.css')
+        link(rel='stylesheet', href='#{clientpath}themes/default.css')
+        link(rel='stylesheet', href='#{clientpath}custom.css')
+    body
+        div.sp-screen
+            div.sp-pane.deck-container
+                !{deck}
     
-        p.deck-status
-            span.deck-status-current
-            span /
-            span.deck-status-total
+                p.deck-status
+                    span.deck-status-current
+                    span /
+                    span.deck-status-total
+                    
+        .sp-stage
+            .sp-floor
+            
+        .sp-audience
         
         script(src='#{clientpath}deckem.js')
         script

@@ -10,10 +10,12 @@
     "engines": { "node": "0.4.x || 0.5.x" },
     
     "dependencies": {
+        "async": "0.1.x",
         "commander": "0.1.x",
         "jade": "0.15.x",
         "out": "0.x.x",
-        "ncp": "0.1.x"
+        "ncp": "0.1.x",
+        "underscore": "1.x.x"
     },
     
     "devDependencies": {

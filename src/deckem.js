@@ -6,4 +6,6 @@
 //= deck.js!extensions/scale/deck.scale.js
 //= deckmirror!deck.codemirror.js
 
+//= keymaster!
+
 //= deck.js!modernizr.custom.js
