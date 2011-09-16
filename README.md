@@ -58,9 +58,28 @@ deckem build
 
 After building your deck (note, you can also just run `deckem` as build is the default action), you will have an additional three files in your directory:
 
-- main.html (The compiled deck)
+- index.html (The compiled deck)
 - deckem.css (A collection of [CSS files](/DamonOehlman/deckem/blob/master/src/deckem.css) required to make the deck look pretty)
 - deckem.js (A collection of [JavaScript files](https://github.com/DamonOehlman/deckem/blob/master/src/deckem.js) require to make the deck work)
+
+## Advanced Usage
+
+### Configuration Files
+
+In addition to the main `deck.jade` file, you might have also noticed that a scaffolded presentation also contains a `deck.json` file.  This file allows you to configure aspects of the deck.
+
+```js
+{
+	"title": "Your Deck Title",
+	"theme": "neon"
+}
+```
+
+### Building a Suite of Decks
+
+In short, run the `deckem` from a directory in which you have subfolders with decks in them.  It will build them all for you and put the client assets in the root folder only.  
+
+Deck configurations are inherited from parent folders down into subfolders, so you can specify a theme in a top level folder and have all child decks use that them while using the configuration file to set the presentation title.
 
 ## License
 
