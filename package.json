@@ -3,7 +3,7 @@
     "description": "Build deck.js presentations using Jade templating",
     "tags": ["presentations", "deck.js", "couchdb", "steelmesh"],
     "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "main": "index",
     "bin": { "deckem": "./bin/deckem" },
     
