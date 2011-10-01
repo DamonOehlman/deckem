@@ -1,36 +1,9 @@
 #!/usr/bin/env node
 
-var DeckBuilder = require('../lib/deckem').DeckBuilder,
-	fs = require('fs'),
-	path = require('path'),
-	program = require('commander');
-	
-function progInit() {
-	program.usage('[options] action (default action = run)');
-	program.option('-p, --path [path]', 'Target output path (default to current directory)');
-	program.parse(process.argv);
-	
-	// create the deck builder
-	var builder = new DeckBuilder(program);
-	
-	// once the deck builder is ready, run the specified action
-	builder.on('ready', function() {
-		// determine the greenslide action to run
-		var action = builder[program.args] || builder.build;
-	
-		// run the action
-		action.call(builder, program, function() {
-			// done
-		});
-	});
-} // progInit
-	
-fs.readFile(path.join(__dirname, '../package.json'), 'utf8', function(err, contents) {
-	if (! err) {
-		var packageData = JSON.parse(contents);
-		
-		program.version(packageData.version);
-	} // if
+var path = require('path');
 
-	progInit();
+require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, action) {
+	(action || builder.build).call(builder, function() {
+		// done
+	});
 });

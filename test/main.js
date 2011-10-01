@@ -2,16 +2,14 @@ var vows = require('vows'),
     assert = require('assert'),
     fs = require('fs'),
     path = require('path'),
-    DeckBuilder = require('../lib/deckem').DeckBuilder,
     rePathDeckem = /^(.*?\/deckem)\/?.*$/i,
     testPath = process.cwd().replace(rePathDeckem, '$1/test/testdeck'),
     testOpts = {
         path: testPath
     },
-    builder = new DeckBuilder(testOpts);
     suite = vows.describe('Deckem Tests');
     
-builder.on('ready', function() {
+require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, action) {
     suite.addBatch({
         'Deck Creation': {
             topic: function() {
@@ -38,5 +36,4 @@ builder.on('ready', function() {
     });
     
     suite.run();
-});
-
+}, testOpts);
