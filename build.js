@@ -2,9 +2,10 @@ var interleave = require('interleave'),
     fs = require('fs'),
     config = {
         aliases: {
-            'deck.js': 'github://imakewebthings/deck.js/$1?v=stable',
+            'deck.js': '../deck.js/$1', // 'github://imakewebthings/deck.js/$1?v=stable',
             'deckmirror': 'github://iros/deck.js-codemirror/$1',
-            'keymaster': 'github://madrobby/keymaster/keymaster.js'
+            'keymaster': 'github://madrobby/keymaster/keymaster.js',
+            'underscore': 'github://documentcloud/underscore/underscore.js?v=1.1.7'
         }
     };
 

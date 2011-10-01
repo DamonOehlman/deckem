@@ -2,7 +2,7 @@
 /*= deck.js!extensions/hash/deck.hash.css */
 /*= deck.js!extensions/status/deck.status.css */
 /*= deck.js!themes/transition/horizontal-slide.css */
-/*= deckmirror!deck.codemirror.css */
+/* deckmirror!deck.codemirror.css */
 
 html {
     overflow: hidden;
@@ -16,4 +16,8 @@ body {
 
 .sp-screen {
     height: 100%;
+}
+
+.slide aside {
+    display: none;
 }

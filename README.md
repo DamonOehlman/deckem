@@ -8,6 +8,8 @@ First, lets establish why this project exists:
 
 3. The two combined with some tooling would be awesome.
 
+__NOTE:__ Deckem uses a [modified version of deck.js](https://github.com/DamonOehlman/deck.js) which removes a lot of the iframe hacks that have been implemented to improve the behaviour of video embedded in slides.  This has been done as deckem is designed to be a coders presentation tool and iframes are used to embed demos that have been built with [demogen](https://github.com/DamonOehlman/demogen).
+
 ## Getting Started
 
 ### Installing Deck'em
