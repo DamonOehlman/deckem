@@ -6,6 +6,7 @@
 // deck.js!extensions/scale/deck.scale.js
 // deckmirror!deck.codemirror.js
 
+//= eve!
 //= keymaster!
 //= underscore!
 
@@ -14,6 +15,8 @@
 DECKEM = (function() {
     
     /* internals */
+    
+    var slideFrames;
     
     function initSlide(slide) {
         var bgImage = slide.data('bg');
@@ -24,6 +27,18 @@ DECKEM = (function() {
         } // if
     } // initSlide
     
+    function makeTrigger() {
+        var evtArgs = Array.prototype.slice.call(arguments, 0);
+        
+        return function() {
+            eve.apply(eve, evtArgs);
+        };
+    } // makeTrigger
+    
+    function mapMessageToEve(evt) {
+        
+    } // mapMessageToEve
+    
     /* intialization */
     
     $(document).bind('deck.init', function(evt) {
@@ -31,8 +46,34 @@ DECKEM = (function() {
     });
 
     $(document).bind('deck.change', function(evt, from, to) {
-        $.deck('getSlide', to).each(function() {
+        slideFrames = $.deck('getSlide', to).find('iframe');
+    });
+
+    // route messages to eve
+    window.addEventListener('message', mapMessageToEve, false);
+    
+    // map all eve events to the childframes
+    eve.on('*', function() {
+        var message;
+        
+        if (slideFrames.length) {
+            message = JSON.stringify({
+                name: eve.nt(),
+                args: Array.prototype.slice(arguments, 0)
+            });
+        } // if
+        
+        console.log('captured event: ' + eve.nt());
+        console.log(message);
+        
+        slideFrames.each(function() {
+            this.contentWindow.postMessage(message, '*');
         });
     });
+    
+    // map keys
+    key('⌘+/, ctrl+/', makeTrigger('run'));
+    
+    return {};
 })();
 

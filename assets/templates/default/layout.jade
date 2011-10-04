@@ -22,16 +22,15 @@ html
             
         .sp-audience
         
-        script(src='#{clientpath}deckem.js')
-        script
-            /*
-            $.deck.defaults.keys = {
-              next: [],
-              previous: []
-            };
-            */
+        - includes.forEach(function(include) {
+          script(src=include)
+        - })
         
-            $(function() {
-                $.deck('.slide');
-            });
+        script(src='#{clientpath}deckem.js')
+
+        - plugins.forEach(function(plugin) {
+          script(src='#{clientpath}deckem-#{plugin}.js')
+        - })
+        
+        script(src='#{clientpath}bridge-#{bridge}.js')
    

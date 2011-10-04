@@ -2,6 +2,7 @@ var interleave = require('interleave'),
     fs = require('fs'),
     config = {
         aliases: {
+            'eve': 'github://DmitryBaranovskiy/eve/eve.js',
             'deck.js': '../deck.js/$1', // 'github://imakewebthings/deck.js/$1?v=stable',
             'deckmirror': 'github://iros/deck.js-codemirror/$1',
             'keymaster': 'github://madrobby/keymaster/keymaster.js',
