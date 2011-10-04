@@ -28,8 +28,8 @@ html
         
         script(src='#{clientpath}deckem.js')
 
-        - plugins.forEach(function(plugin) {
-          script(src='#{clientpath}deckem-#{plugin}.js')
+        - scripts.forEach(function(pluginScript) {
+          script= pluginScript
         - })
         
         script(src='#{clientpath}bridge-#{bridge}.js')

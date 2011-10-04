@@ -17,6 +17,12 @@ interleave('src', {
     config: config
 });
 
+interleave('src/plugins', {
+    multi: 'pass', 
+    path: 'assets/plugins',
+    config: config
+});
+
 // build each of the themse
 interleave('src/themes', {
     multi: 'pass',
