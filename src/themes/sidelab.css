@@ -1,0 +1,81 @@
+.deck-container {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1.25em;
+  background: #E2EDCF;
+}
+.deck-container .slide {
+  background: #E2EDCF;
+}
+.deck-container h1 {
+  color: #30331E;
+}
+.deck-container h2 {
+  color: #30331E;
+  border-bottom-color: #30331E;
+}
+.deck-container h3 {
+  color: #736B2C;
+}
+.deck-container pre {
+  border-color: #ccc;
+}
+.deck-container code {
+  color: #736B2C;
+}
+.deck-container p, .deck-container ul {
+  font-size: 1.3em;
+  color: #4D4E48;
+}
+.deck-container blockquote {
+  font-size: 2em;
+  font-style: italic;
+  padding: 1em 2em;
+  color: #000;
+  border-left: 5px solid #ccc;
+}
+.deck-container blockquote p {
+  margin: 0;
+}
+.deck-container blockquote cite {
+  font-size: .5em;
+  font-style: normal;
+  font-weight: bold;
+  color: #888;
+}
+.deck-container ::-moz-selection {
+  background: #c00;
+  color: #fff;
+}
+.deck-container ::selection {
+  background: #c00;
+  color: #fff;
+}
+.deck-container a {
+  color: #736B2C;
+  text-decoration: none;
+}
+.deck-container a:hover, .deck-container a:focus {
+  text-decoration: underline;
+}
+.deck-container .deck-prev-link, .deck-container .deck-next-link {
+  background: #ccc;
+  font-family: serif;
+  color: #fff;
+}
+.deck-container .deck-prev-link:hover,
+.deck-container .deck-next-link:hover,
+.deck-container .deck-prev-link:focus,
+.deck-container .deck-next-link:focus {
+  background: #c00;
+  text-decoration: none;
+}
+.deck-container .deck-status {
+  font-size: 0.6666em;
+}
+.deck-container.deck-menu .slide {
+  background: #eee;
+}
+.deck-container.deck-menu .deck-current, .deck-container.deck-menu .no-touch.slide:hover {
+  background: #ddf;
+}
+/*= template/stage-light.css */

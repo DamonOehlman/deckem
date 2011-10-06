@@ -1,0 +1,17 @@
+body {
+    background: black;
+}
+
+.sp-screen {
+    background: #555;
+}
+
+.sp-floor {
+    background: #333;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #444;
+}
+
+.sp-audience {
+    background: #888;
+}
