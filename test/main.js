@@ -10,6 +10,7 @@ var vows = require('vows'),
     suite = vows.describe('Deckem Tests');
     
 require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, action) {
+    /*
     suite.addBatch({
         'Deck Creation': {
             topic: function() {
@@ -22,6 +23,7 @@ require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, a
             }
         }
     });
+    */
     
     suite.addBatch({
         'Deck Build': {

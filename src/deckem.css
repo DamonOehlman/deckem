@@ -22,10 +22,9 @@ body {
     display: none;
 }
 
-.slide iframe.code {
+.slide iframe {
     width: 100%;
     height: 400px;
-    -webkit-border-radius: 10px;
 }
 
 iframe.slide {

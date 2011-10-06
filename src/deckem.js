@@ -12,11 +12,29 @@
 
 //= deck.js!modernizr.custom.js
 
+//= eve-remote!
+
 DECKEM = (function() {
     
     /* internals */
     
-    var slideFrames;
+    var currentSlide,
+        frameRemoter,
+        reLogEvents = /^logger\.(.*)$/i;
+        
+    function getAvailableHeight() {
+        if (currentSlide) {
+            var totalHeight = 0;
+            
+            currentSlide.children().each(function() {
+                totalHeight += $(this).height();
+            });
+            
+            return currentSlide.height() - totalHeight;
+        } // if
+        
+        return 0;
+    } // getAvailableHeight
     
     function initSlide(slide) {
         var bgImage = slide.data('bg');
@@ -27,17 +45,11 @@ DECKEM = (function() {
         } // if
     } // initSlide
     
-    function makeTrigger() {
-        var evtArgs = Array.prototype.slice.call(arguments, 0);
-        
+    function makeTrigger(eventName) {
         return function() {
-            eve.apply(eve, evtArgs);
+            eve.apply(eve, [eventName, null].concat(Array.prototype.slice.call(arguments, 0)));
         };
     } // makeTrigger
-    
-    function mapMessageToEve(evt) {
-        
-    } // mapMessageToEve
     
     /* intialization */
     
@@ -46,29 +58,40 @@ DECKEM = (function() {
     });
 
     $(document).bind('deck.change', function(evt, from, to) {
-        slideFrames = $.deck('getSlide', to).find('iframe');
+        var frames = [];
+        
+        currentSlide = $.deck('getSlide', to);
+        
+        $('iframe', currentSlide).each(function() {
+            frames.push(this.contentWindow);
+        });
+        
+        frameRemoter = eveRemote('*', frames, frameRemoter);
+        
+        // add the logger to the current slide
+        $('.logger', currentSlide).remove();
     });
 
-    // route messages to eve
-    window.addEventListener('message', mapMessageToEve, false);
-    
-    // map all eve events to the childframes
-    eve.on('*', function() {
-        var message;
+    // handle logger messages
+    eve.on('logger', function() {
+        var eventName = eve.nt().replace(reLogEvents, '$1'),
+            logItems = [];
         
-        if (slideFrames.length) {
-            message = JSON.stringify({
-                name: eve.nt(),
-                args: Array.prototype.slice(arguments, 0)
-            });
+        if (currentSlide) {
+            $('.logger', currentSlide).remove();
+            
+            for (var ii = 0; ii < arguments.length; ii++) {
+                logItems.push('<li>' + JSON.stringify(arguments[ii]) + '</li>');
+            } // for
+            
+            currentSlide.append(
+                '<div class="logger"><h4>' + eventName + '</h4>' + 
+                '<ul>' + logItems.join('') + '</ul>' + 
+                '</div>'
+            );
+            
+            $('.logger', currentSlide).height(getAvailableHeight()).addClass('active');
         } // if
-        
-        console.log('captured event: ' + eve.nt());
-        console.log(message);
-        
-        slideFrames.each(function() {
-            this.contentWindow.postMessage(message, '*');
-        });
     });
     
     // map keys
