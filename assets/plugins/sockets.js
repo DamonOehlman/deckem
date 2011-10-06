@@ -1,7 +1,5 @@
 DECKEM.Sockets = (function() {
     
-    var reSock = /^sock\:.*$/i;
-
     /* exports */
 
     function connect(server) {
@@ -10,19 +8,10 @@ DECKEM.Sockets = (function() {
             
             var socket = io.connect(server);
             socket.on('connect', function() {
-                eve.on('deck.*', function() {
-                    // get the last argument
-                    var lastArg = arguments.length ? arguments[arguments.length - 1] : null;
-                    
-                    // if the last arg is a socket connection, then don't send it to the serve
-                    // because we got it from the server...
-                    if ((! lastArg) || (! reSock.test(lastArg))) {
-                        socket.emit.apply(socket, ['event', eve.nt()].concat(Array.prototype.slice.call(arguments, 0)));
-                    } // if
-                });
+                eve('socket.connect', null, socket);
                 
                 socket.on('event', function(evtName) {
-                    eve.apply(eve, [evtName, DECKEM].concat(Array.prototype.slice.call(arguments, 1)));
+                    eve.apply(eve, [evtName, null].concat(Array.prototype.slice.call(arguments, 1)));
                 });
             });
         }
