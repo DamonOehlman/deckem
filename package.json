@@ -1,35 +1,37 @@
 {
-    "name": "deckem",
-    "description": "Build deck.js presentations using Jade templating",
-    "tags": ["presentations", "deck.js", "couchdb", "steelmesh"],
-    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-    "version": "0.0.7",
-    "main": "index",
-    "bin": { "deckem": "./bin/deckem" },
-    
-    "engines": { "node": "0.4.x || 0.5.x" },
-    
-    "dependencies": {
-        "async": "0.1.x",
-        "jade": "0.15.x",
-        "underscore": "1.x.x",
-        "scaffolder": "0.0.x"
-    },
-    
-    "devDependencies": {
-        "vows": "0.5.x",
-        "interleave": "0.0.x"
-    },
-    
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/steelmesh/deckem.git"
-    },
-    
-    "bugs": {
-        "web": "http://github.com/steelmesh/deckem/issues"
-    },
-
-    "contributors": [
-    ]
+  "name": "deckem",
+  "description": "Build deck.js presentations using Jade templating",
+  "tags": [
+    "presentations",
+    "deck.js",
+    "couchdb",
+    "steelmesh"
+  ],
+  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "version": "0.0.8",
+  "main": "index",
+  "bin": {
+    "deckem": "./bin/deckem"
+  },
+  "engines": {
+    "node": ">= 0.4.x < 0.7.0"
+  },
+  "dependencies": {
+    "async": "0.1.x",
+    "jade": "0.16.x",
+    "underscore": "1.x.x",
+    "scaffolder": "0.0.x"
+  },
+  "devDependencies": {
+    "vows": "0.5.x",
+    "interleave": "0.0.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/steelmesh/deckem.git"
+  },
+  "bugs": {
+    "url": "http://github.com/steelmesh/deckem/issues"
+  },
+  "contributors": []
 }
