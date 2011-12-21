@@ -20,7 +20,7 @@
     "async": "0.1.x",
     "jade": "0.16.x",
     "underscore": "1.x.x",
-    "scaffolder": "0.0.x"
+    "scaffolder": ">= 0.2.0"
   },
   "devDependencies": {
     "vows": "0.5.x",

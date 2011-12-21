@@ -4,30 +4,28 @@ html
         title #{title}
         
         link(rel='stylesheet', href='#{clientpath}deckem.css')
-        // link(rel='stylesheet', href='#{clientpath}stage.css')
         link(rel='stylesheet', href='#{clientpath}themes/#{theme}.css')
         link(rel='stylesheet', href='#{clientpath}custom.css')
+        
+        - stylesheets.forEach(function(stylesheet) {
+          link(href='#{stylesheet}', rel='stylesheet')
+        - })
     body
-        div.sp-screen
-            div.sp-pane.deck-container
+        div.deckem.drop-shadow.curved.curved-vt-2
+            div.deck-container
                 !{deck}
-    
+
                 p.deck-status
                     span.deck-status-current
                     span /
                     span.deck-status-total
                     
-        .sp-stage
-            .sp-floor
-            
-        .sp-audience
-        
+        script(src='#{clientpath}deckem.js')
+
         - includes.forEach(function(include) {
           script(src=include)
         - })
         
-        script(src='#{clientpath}deckem.js')
-
         - scripts.forEach(function(pluginScript) {
           script= pluginScript
         - })

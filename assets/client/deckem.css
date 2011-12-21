@@ -505,6 +505,60 @@ body.deck-container {
 }
 
 
+/* Pretty printing styles. Used with prettify.js. */
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+@media screen {
+  .str { color: #080 }  /* string content */
+  .kwd { color: #008 }  /* a keyword */
+  .com { color: #800 }  /* a comment */
+  .typ { color: #606 }  /* a type name */
+  .lit { color: #066 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #660 }
+  .tag { color: #008 }  /* a markup tag name */
+  .atn { color: #606 }  /* a markup attribute name */
+  .atv { color: #080 }  /* a markup attribute value */
+  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .fun { color: red }  /* a function name */
+}
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
+
+/* Put a border around prettyprinted code snippets. */
+pre.prettyprint { padding: 2px; border: 1px solid #888 }
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }
+
+
 /* deckmirror!deck.codemirror.css */
 
 html {
@@ -513,23 +567,68 @@ html {
 
 body {
     width: 100%;
-    height: 100%;
+    height: 96%;
     margin: 0;
+    padding: 1% 0;
+    overflow: hidden;
 }
 
-.sp-screen {
+body.fullwidth, body.speakermode {
     height: 100%;
+    padding: 0;
+}
+
+.deckem.drop-shadow {
+    margin: 0 auto;
+    padding: 0;
+    height: 100%;
+    width: 70%;
+}
+
+body.fullwidth .deckem.drop-shadow, body.speakermode .deckem.drop-shadow {
+    width: 100%;
+}
+
+.deckem .deck-container {
+    width: 100%;
+    padding: 0;
 }
 
 .slide aside {
     display: none;
 }
 
-.slide iframe {
-    width: 100%;
-    height: 400px;
+body.speakermode .slide h1 {
+    font-size: 1.4em;
+    position: relative;
+    margin: 1em;
 }
 
-iframe.slide {
+body.speakermode .slide aside {
+    display: block;
+}
+
+.slide.flex iframe {
+    width: 100%;
+    -webkit-box-flex: 1;
+}
+
+iframe.slide, img.slide {
     padding: 0px !important;
+}
+
+.lifted iframe, .lifted img {
+    -webkit-border-radius: 4px;
+}
+
+.slide.flex {
+    display: block;
+    display: -webkit-box;
+    
+    -webkit-box-orient: vertical;
+}
+
+.slide.flex .autoheight {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
 }

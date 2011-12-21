@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-var path = require('path');
-
-require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, action) {
+var path = require('path'),
+	builder = require('scaffolder').create(path.resolve(__dirname, '../'));
+	
+builder.once('ready', function(action) {
 	(action || builder.build).call(builder, function() {
 		// done
 	});

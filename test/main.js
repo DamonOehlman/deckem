@@ -7,9 +7,10 @@ var vows = require('vows'),
     testOpts = {
         path: testPath
     },
-    suite = vows.describe('Deckem Tests');
+    suite = vows.describe('Deckem Tests'),
+    builder = require('scaffolder').create(path.resolve(__dirname, '../'), testOpts);
     
-require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, action) {
+builder.once('ready', function(action) {
     /*
     suite.addBatch({
         'Deck Creation': {
@@ -28,7 +29,7 @@ require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, a
     suite.addBatch({
         'Deck Build': {
             topic: function() {
-                builder.build(testOpts, this.callback);
+                builder.build(this.callback);
             },
             
             'deck output file exists': function() {
@@ -38,4 +39,4 @@ require('scaffolder').create(path.resolve(__dirname, '../'), function(builder, a
     });
     
     suite.run();
-}, testOpts);
+});

@@ -1,17 +1,8 @@
 body {
-    background: black;
-}
-
-.sp-screen {
-    background: #C3BA81;
-}
-
-.sp-floor {
-    background: #90A5B6;
-    border-bottom: 1px solid #bbb;
-    border-top: 1px solid #444;
-}
-
-.sp-audience {
-    background: #888;
+    background-color:#f5e5bd;
+    background-image: -moz-radial-gradient(50% 0%, ellipse farthest-corner, #f5e5bd, #B68D3D 100%);
+    background-image: -webkit-radial-gradient(50% 0%, ellipse farthest-corner, #f5e5bd, #B68D3D 100%);
+    background-image: -o-radial-gradient(50% 0%, ellipse farthest-corner, #f5e5bd, #B68D3D 100%);
+    background-image: -ms-radial-gradient(50% 0%, ellipse farthest-corner, #f5e5bd, #B68D3D 100%);
+    background-image: radial-gradient(50% 0%, ellipse farthest-corner, #f5e5bd, #B68D3D 100%);
 }

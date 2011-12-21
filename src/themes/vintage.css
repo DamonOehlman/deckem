@@ -53,8 +53,10 @@
   color: #fff;
 }
 .deck-container a {
-  color: #4B5846;
+  color: #5B1C0D;
   text-decoration: none;
+  font-weight: 500;
+  text-shadow: #bbb 0 1px 2px;
 }
 .deck-container a:hover, .deck-container a:focus {
   text-decoration: underline;
