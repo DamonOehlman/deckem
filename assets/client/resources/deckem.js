@@ -9560,14 +9560,14 @@ This module adds a (current)/(total) style status indicator to the deck.
 
 
 // ┌──────────────────────────────────────────────────────────────────────────────────────┐ \\
-// │ Eve 0.3.2 - JavaScript Events Library                                                │ \\
+// │ Eve 0.3.3 - JavaScript Events Library                                                │ \\
 // ├──────────────────────────────────────────────────────────────────────────────────────┤ \\
 // │ Copyright (c) 2008-2011 Dmitry Baranovskiy (http://dmitry.baranovskiy.com/)          │ \\
 // │ Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license. │ \\
 // └──────────────────────────────────────────────────────────────────────────────────────┘ \\
 
 (function (glob) {
-    var version = "0.3.2",
+    var version = "0.3.3",
         has = "hasOwnProperty",
         separator = /[\.\/]/,
         wildcard = "*",
@@ -9711,13 +9711,13 @@ This module adds a (current)/(total) style status indicator to the deck.
      - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
      - f (function) event handler function
      **
-     = (function) returned function accept one number parameter that represents z-index of the handler. It is optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order, despite of the order of assignment. 
+     = (function) returned function accepts a single numeric parameter that represents z-index of the handler. It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order, despite of the order of assignment. 
      > Example:
      | eve.on("mouse", eat)(2);
      | eve.on("mouse", scream);
      | eve.on("mouse", catch)(1);
      * This will ensure that `catch` function will be called before `eat`.
-     * If you want to put you hadler before not indexed handlers specify negative value.
+     * If you want to put your handler before non-indexed handlers, specify a negative value.
      * Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
     \*/
     eve.on = function (name, f) {
@@ -9743,7 +9743,7 @@ This module adds a (current)/(total) style status indicator to the deck.
      * eve.stop
      [ method ]
      **
-     * Is used inside event handler to stop event
+     * Is used inside an event handler to stop the event, preventing any subsequent listeners from firing.
     \*/
     eve.stop = function () {
         stop = 1;
@@ -9784,9 +9784,10 @@ This module adds a (current)/(total) style status indicator to the deck.
             e,
             key,
             splice,
+            i, ii, j, jj,
             cur = [events];
-        for (var i = 0, ii = names.length; i < ii; i++) {
-            for (var j = 0; j < cur.length; j += splice.length - 2) {
+        for (i = 0, ii = names.length; i < ii; i++) {
+            for (j = 0; j < cur.length; j += splice.length - 2) {
                 splice = [j, 1];
                 e = cur[j].n;
                 if (names[i] != wildcard) {
@@ -9829,6 +9830,32 @@ This module adds a (current)/(total) style status indicator to the deck.
                 e = e.n;
             }
         }
+    };
+    /*\
+     * eve.once
+     [ method ]
+     **
+     * Binds given event handler with a given name to only run once then unbind itself.
+     | eve.once("login", f);
+     | eve("login"); // triggers f
+     | eve("login"); // no listeners
+     * Use @eve to trigger the listener.
+     **
+     > Arguments
+     **
+     - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
+     - f (function) event handler function
+     **
+     = (function) same return function as @eve.on
+    \*/
+    eve.once = function (name, f) {
+        var f2 = function () {
+            var res = f.apply(this, arguments);
+            eve.unbind(name, f2);
+
+            return res;
+        };
+        return eve.on(name, f2);
     };
     /*\
      * eve.version
@@ -9939,6 +9966,11 @@ This module adds a (current)/(total) style status indicator to the deck.
     }
   };
 
+  function resetModifiers() {
+    for(k in _mods) _mods[k] = false;
+    for(k in _MODIFIERS) assignKey[k] = false;
+  }
+
   // parse and assign shortcut
   function assignKey(key, scope, method){
     var keys, mods, i, mi;
@@ -9976,6 +10008,7 @@ This module adds a (current)/(total) style status indicator to the deck.
 
   // set current scope (default 'all')
   function setScope(scope){ _scope = scope || 'all' };
+  function getScope(){ return _scope || 'all' };
 
   // cross-browser events
   function addEvent(object, event, method) {
@@ -9989,9 +10022,13 @@ This module adds a (current)/(total) style status indicator to the deck.
   addEvent(document, 'keydown', dispatch);
   addEvent(document, 'keyup', clearModifier);
 
+  // reset modifiers to false whenever the window is (re)focused.
+  addEvent(window, 'focus', resetModifiers);
+
   // set window.key and window.key.setScope
   global.key = assignKey;
   global.key.setScope = setScope;
+  global.key.getScope = getScope;
 
   if(typeof module !== 'undefined') module.exports = key;
 
@@ -11063,94 +11100,6 @@ DECKEM = (function() {
         };
     } // makeTrigger
 
-    // remy's stringify from jsconsole...
-    // see: https://github.com/remy/jsconsole/blob/master/console.js
-    function stringify(o, simple, visited) {
-
-        function sortci(a, b) {
-          return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
-        }
-
-
-      var json = '', i, vi, type = '', parts = [], names = [], circular = false;
-      visited = visited || [];
-
-      try {
-        type = ({}).toString.call(o);
-      } catch (e) { // only happens when typeof is protected (...randomly)
-        type = '[object Object]';
-      }
-
-      // check for circular references
-      for (vi = 0; vi < visited.length; vi++) {
-        if (o === visited[vi]) {
-          circular = true; 
-          break;
-        }
-      }
-
-      if (circular) {
-        json = '[circular]';
-      } else if (type == '[object String]') {
-        json = '"' + o.replace(/"/g, '\\"') + '"';
-      } else if (type == '[object Array]') {
-        visited.push(o);
-
-        json = '[';
-        for (i = 0; i < o.length; i++) {
-          parts.push(stringify(o[i], simple, visited));
-        }
-        json += parts.join(', ') + ']';
-        json;
-      } else if (type == '[object Object]') {
-        visited.push(o);
-
-        json = '{';
-        for (i in o) {
-          names.push(i);
-        }
-        names.sort(sortci);
-        for (i = 0; i < names.length; i++) {
-          parts.push( stringify(names[i], undefined, visited) + ': ' + stringify(o[ names[i] ], simple, visited) );
-        }
-        json += parts.join(', ') + '}';
-      } else if (type == '[object Number]') {
-        json = o+'';
-      } else if (type == '[object Boolean]') {
-        json = o ? 'true' : 'false';
-      } else if (type == '[object Function]') {
-        json = o.toString();
-      } else if (o === null) {
-        json = 'null';
-      } else if (o === undefined) {
-        json = 'undefined';
-      } else if (simple == undefined) {
-        visited.push(o);
-
-        json = type + '{\n';
-        for (i in o) {
-          names.push(i);
-        }
-        names.sort(sortci);
-        for (i = 0; i < names.length; i++) {
-          try {
-            parts.push(names[i] + ': ' + stringify(o[names[i]], true, visited)); // safety from max stack
-          } catch (e) {
-            if (e.name == 'NS_ERROR_NOT_IMPLEMENTED') {
-              // do nothing - not sure it's useful to show this error when the variable is protected
-              // parts.push(names[i] + ': NS_ERROR_NOT_IMPLEMENTED');
-            }
-          }
-        }
-        json += parts.join(',\n') + '\n}';
-      } else {
-        try {
-          json = o+''; // should look like an object      
-        } catch (e) {}
-      }
-      return json;
-    }    
-    
     function toggleFullWidth() {
         $('body').toggleClass('fullwidth');
     } // toggleFullWidth

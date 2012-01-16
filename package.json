@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "vows": "0.5.x",
-    "interleave": "0.0.x"
+    "interleave": "0.1.x"
   },
   "repository": {
     "type": "git",

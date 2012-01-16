@@ -3,7 +3,7 @@ var interleave = require('interleave'),
     config = {
         aliases: {
             'eve': 'github://DmitryBaranovskiy/eve/eve.js',
-            'eve-remote': '/development/projects/github/DamonOehlman/eve-remote/eve-remote.js',
+            'eve-remote': '/development/projects/DamonOehlman/eve-remote/eve-remote.js',
             'deck.js': '../deck.js/$1', // 'github://imakewebthings/deck.js/$1?v=stable',
             'deckmirror': 'github://iros/deck.js-codemirror/$1',
             'keymaster': 'github://madrobby/keymaster/keymaster.js',
@@ -13,7 +13,6 @@ var interleave = require('interleave'),
 
 // build each of the builds
 interleave('src', {
-    multi: 'pass',
     path: 'assets/client',
     config: config
 });
@@ -30,7 +29,6 @@ interleave('src/plugins', {
 
 // build each of the themse
 interleave('src/themes', {
-    multi: 'pass',
     path: 'assets/client/themes',
     config: config
 });

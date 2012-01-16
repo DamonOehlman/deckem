@@ -3,9 +3,9 @@ html
     head
         title #{title}
         
-        link(rel='stylesheet', href='#{clientpath}deckem.css')
+        link(rel='stylesheet', href='#{clientpath}resources/deckem.css')
         link(rel='stylesheet', href='#{clientpath}themes/#{theme}.css')
-        link(rel='stylesheet', href='#{clientpath}custom.css')
+        link(rel='stylesheet', href='#{clientpath}resources/custom.css')
         
         - stylesheets.forEach(function(stylesheet) {
           link(href='#{stylesheet}', rel='stylesheet')
@@ -20,7 +20,7 @@ html
                     span /
                     span.deck-status-total
                     
-        script(src='#{clientpath}deckem.js')
+        script(src='#{clientpath}resources/deckem.js')
 
         - includes.forEach(function(include) {
           script(src=include)
@@ -30,5 +30,5 @@ html
           script= pluginScript
         - })
         
-        script(src='#{clientpath}bridge-#{bridge}.js')
+        script(src='#{clientpath}resources/bridge-#{bridge}.js')
    
