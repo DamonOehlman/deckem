@@ -8,7 +8,7 @@
     "steelmesh"
   ],
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "index",
   "bin": {
     "deckem": "./bin/deckem"
