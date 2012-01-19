@@ -18,9 +18,12 @@
   },
   "dependencies": {
     "async": "0.1.x",
-    "jade": "0.16.x",
+    "cleave": "0.1.x",
+    "debug": "*",
+    "jade": "0.20.x",
+    "out": "*",
     "underscore": "1.x.x",
-    "scaffolder": ">= 0.2.0"
+    "scaffolder": "0.4.x"
   },
   "devDependencies": {
     "vows": "0.5.x",
