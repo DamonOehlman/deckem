@@ -9,5 +9,9 @@ repl.generator = require('scaffolder')(module);
 repl
     .history()
     .loadActions(path.resolve(__dirname, '../lib/actions'), function() {
-        repl.run(process.argv.slice(2).join(' '));
+        var command = process.argv.slice(2).join(' ');
+        
+        if (command) {
+            repl.run([command, 'quit']);
+        }
     });
